@@ -1,0 +1,32 @@
+139.162.11.222
+root
+1. go to /var/www/html and create new folder using mkdir jcwd-batchcode-groupcode
+2. go to /etc/nginx/conf.d create new file subdomaingiven.conf and paste this code. adjust server name with subdomain given. adjust port with given port
+server {
+  server_name   absensi-01.project-kelas.com;
+
+  location / {
+    proxy_pass             http://127.0.0.1:2000;
+
+    # Allow the use of websockets
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+
+}
+3. run nginx -t to check if its running properly. and run systemctl restart nginx
+4. run this sudo certbot --nginx -d subdomain.purwadhikabootcamp.com
+5. create mysql user to each group execute this docker exec -it mysql-adminer_mysql_1 /bin/sh
+5.1 login with mysql -u root -p
+5.2 enter password pwdbootcamp123 (dont share this to student)
+5.3 create new user CREATE USER 'new_user_name'@'%'
+IDENTIFIED BY 'user_password'
+5.4 create db based on batch and group name
+5.5 execute this GRANT ALL PRIVILEGES ON dbname.* TO new_user_name@'%';
+5.6 share the user, password, and db name you just created to students
+6. exec pm2 status to check node application running on pm2
+7. using pm2 status, get application id and run pm2 logs idapplication to check the applications logs
+8. akses adminer https://adminer.purwadhikabootcamp.com/

@@ -14,7 +14,7 @@ dotenv.config(join(__dirname, '../.env')); //baca env di linux
 const db = require('./models');
 const router = require('./routes');
 const verifyAPI = require('./middlewares/verify');
-db.sequelize.sync({ alter: true });
+// db.sequelize.sync({ alter: true });
 
 const PORT = process.env.PORT || 8000;
 const app = express();
