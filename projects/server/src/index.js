@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 // const app = express();
 const cors = require('cors');
 dotenv.config(join(__dirname, '../.env')); //baca env di linux
+
 // const PORT = process.env.PORT;
 
 // app.use(cors());
@@ -33,7 +34,6 @@ app.use(express.json());
 
 // ===========================
 // NOTE : Add your routes here
-db.sequelize.sync({ alter: true });
 app.use(verifyAPI);
 
 app.use('/api/Users', router.userRouter);
