@@ -12,6 +12,10 @@ export function userLogin(account) {
      }
     })
     .then((res) => res.data.token);
+   if (!token) {
+    throw 'error';
+   }
+
    const userData = await api
     .get('/Users/token2', {
      headers: {
