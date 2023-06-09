@@ -6,7 +6,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 // const app = express();
 const cors = require('cors');
-dotenv.config(join(__dirname, '../.env')); //baca env di linux
+dotenv.config({ path: join(__dirname, '../.env') }); //baca env di linux
 
 // const PORT = process.env.PORT;
 
