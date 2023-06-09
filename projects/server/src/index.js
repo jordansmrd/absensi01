@@ -34,7 +34,7 @@ app.use(express.json());
 
 // ===========================
 // NOTE : Add your routes here
-app.use(verifyAPI);
+app.use('/api', verifyAPI);
 
 app.use('/api/Users', router.userRouter);
 app.use('/api/Companies', router.compRouter);
