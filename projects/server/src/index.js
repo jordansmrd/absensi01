@@ -34,12 +34,13 @@ app.use(express.json());
 
 // ===========================
 // NOTE : Add your routes here
+app.use('/api/avatar', express.static(`${__dirname}/public/avatar`));
+
 app.use('/api', verifyAPI);
 
 app.use('/api/Users', router.userRouter);
 app.use('/api/Companies', router.compRouter);
 app.use('/api/attendancelog', router.attlogRouter);
-app.use('/api/avatar', express.static(`${__dirname}/public/avatar`));
 
 app.get('/api', (req, res) => {
  res.send(`Hello, this is my API`);
