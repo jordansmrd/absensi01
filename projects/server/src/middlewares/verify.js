@@ -1,4 +1,4 @@
-const key = process.env['secret-key'];
+const key = process.env['x-secret-key'];
 
 const verifyAPI = (req, res, next) => {
  const secret = req.headers['x-secret-key'];
