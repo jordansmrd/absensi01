@@ -169,7 +169,7 @@ export default function Register() {
         placeholder="Select Company"
         id="company_id"
        >
-        {companyList.map((val) => (
+        {companyList?.map((val) => (
          <option value={val.id}>{val.name}</option>
         ))}
        </Select>
